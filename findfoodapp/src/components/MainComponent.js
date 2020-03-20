@@ -44,7 +44,9 @@ class Main extends Component {
             return (
                 <Home 
                 recepie={this.props.recepies.filter(recepie => recepie.featured)[0]}
-                restaurant={this.props.restaurants.restaurants.filter(restaurant => restaurant.featured)[0]}
+                restaurants={this.props.restaurants.restaurants.filter(restaurant => restaurant.featured)}
+                isLoading={this.props.restaurants.isLoading} 
+                errMess={this.props.restaurants.errMess}
                 quickservice={this.props.quickServices.filter(quickService => quickService.featured)[0]} />
             );
         }

@@ -9,6 +9,7 @@ class RenderVideo extends Component {
       height: '390',
       width: '640',
       playerVars: { // https://developers.google.com/youtube/player_parameters
+        end: 30,
         autoplay: 1
       }
     };

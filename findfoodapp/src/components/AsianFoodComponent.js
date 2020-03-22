@@ -1,16 +1,14 @@
 import React from 'react';
-import { Card, CardImg, CardTitle, CardText, Button } from 'reactstrap';
+import { Card, CardImg, CardTitle, CardText, Button, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 function AsianFoodList(props) {
-    const {
-        foodTypes,
-        quickServices,
-        recepies,
-        restaurants,
-    } = props.allFoodItems;
-
-    const allServices = foodTypes.concat(quickServices, recepies, restaurants)
-    const asianFoodOnly = allServices.filter(asianFood => asianFood.type === 'Asian') 
+    const quickServices = props.quickServices;
+    const recepies = props.recepies;
+    const restaurants = props.restaurants.restaurants;
+    
+    const allServices = quickServices.concat(recepies, restaurants);
+    const asianFoodOnly = allServices.filter(asianFood => asianFood.type === 'Asian'); 
 
     const asianFoodDirectory = asianFoodOnly.map(asianFood => {
         return (
@@ -27,10 +25,20 @@ function AsianFoodList(props) {
 
     return(
         <div className="container">
-                <div className="row">
-                    {asianFoodDirectory}
+            <div className="row">
+                <div className="col">
+                    <Breadcrumb>
+                        <BreadcrumbItem><Link to="/directory">All Foods</Link></BreadcrumbItem>
+                        <BreadcrumbItem active>Asian</BreadcrumbItem>     
+                    </Breadcrumb>
+                    <h2>Asian Food</h2>
+                    <hr />
                 </div>
             </div>
+            <div className="row">
+                {asianFoodDirectory}
+            </div>
+        </div>
     );
 }
 

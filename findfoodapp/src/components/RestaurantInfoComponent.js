@@ -9,6 +9,9 @@ import { Loading } from './LoadingComponent';
 
 
 function RenderRestaurant({restaurant}) {
+    // const image = "/assets/images/restaurants/LasFontanas.jpg";
+                        // assets/images/restaurants/LasFontanas.jpg
+    // console.log(restaurant.image);
     return (
         <div className="col-md-5 m-1">
             <FadeTransform

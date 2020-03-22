@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Home from './HomeComponent';
-import Directory from './DirectoryComponent';
+import Directory from './AllFoodsComponent';
 import Contact from './ContactComponent';
 import RestaurantList from './RestaurantsComponent';
 import RestaurantInfo from './RestaurantInfoComponent';
@@ -44,9 +44,9 @@ class Main extends Component {
             return (
                 <Home 
                 recepie={this.props.recepies.filter(recepie => recepie.featured)[0]}
-                restaurants={this.props.restaurants.restaurants.filter(restaurant => restaurant.featured)}
-                isLoading={this.props.restaurants.isLoading} 
-                errMess={this.props.restaurants.errMess}
+                restaurants={this.props.restaurants.restaurants.filter(restaurant => restaurant.featured)[0]}
+                restaurantsisLoading={this.props.restaurants.isLoading} 
+                restaurantserrMess={this.props.restaurants.errMess}
                 quickservice={this.props.quickServices.filter(quickService => quickService.featured)[0]} />
             );
         }
@@ -73,10 +73,10 @@ class Main extends Component {
                     <Route path='/restaurants/:restaurantId' component={RestaurantWithId} />
                     <Route exact path='/quickservice' render={() => <QuickServiceList quickServices={this.props.quickServices} /> } />
                     <Route exact path='/recepies' render={() => <RecepiesList recepies={this.props.recepies} /> } />
-                    <Route exact path='/mexicanFood' render={() => <MexicanFoodList allFoodItems={this.props} /> } />
-                    <Route exact path='/italianFood' render={() => <ItalianFoodList allFoodItems={this.props} /> } />
-                    <Route exact path='/americanFood' render={() => <AmericanFoodList allFoodItems={this.props} /> } />
-                    <Route exact path='/asianFood' render={() => <AsianFoodList allFoodItems={this.props} /> } />
+                    <Route exact path='/mexicanFood' render={() => <MexicanFoodList restaurants={this.props.restaurants} quickServices={this.props.quickServices} recepies={this.props.recepies} /> } />
+                    <Route exact path='/italianFood' render={() => <ItalianFoodList restaurants={this.props.restaurants} quickServices={this.props.quickServices} recepies={this.props.recepies} /> } />
+                    <Route exact path='/americanFood' render={() => <AmericanFoodList restaurants={this.props.restaurants} quickServices={this.props.quickServices} recepies={this.props.recepies} /> } />
+                    <Route exact path='/asianFood' render={() => <AsianFoodList restaurants={this.props.restaurants} quickServices={this.props.quickServices} recepies={this.props.recepies} /> } />
                     <Route exact path='/aboutus' component={About} />
                     <Route exact path='/contactus' component={Contact} />
                     <Redirect to='/home' />

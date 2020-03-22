@@ -29,8 +29,8 @@ function RenderFeaturedCard({item, isLoading, errMess}) {
 }
 
 function Home(props) {
-    const restaurant = props.restaurants[0] ? props.restaurants[0] : props.restaurants;
-    console.log(props.restaurants);
+    // const restaurant = props.restaurants[0] ? props.restaurants[0] : props.restaurants;
+    // console.log(props.restaurants);
 
     return (
         <React.Fragment>
@@ -56,9 +56,9 @@ function Home(props) {
                         <RenderFeaturedCard item={props.quickservice} />
                     </div>
                     <div className="col-md m-1">
-                        <RenderFeaturedCard item={restaurant}
-                        isLoading={props.restaurantsLoading}
-                        errMess={props.restaurantsErrMess} />
+                        <RenderFeaturedCard item={props.restaurants}
+                        isLoading={props.restaurantsisLoading}
+                        errMess={props.restaurantserrMess} />
                     </div>
                 </div>
             </div>
